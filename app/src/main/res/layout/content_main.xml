@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBaseLight"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="16dp"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".MainActivity"
+    tools:showIn="@layout/activity_main">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="32dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Unix Time"
+            android:textColor="@color/colorAccent"
+            android:textSize="50sp"
+            android:fontFamily="sans-serif-light"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Live"
+            android:layout_gravity="end"
+            android:layout_marginEnd="8dp"
+            android:textColor="@color/colorAccent"
+            android:textSize="14sp"
+            android:fontFamily="sans-serif-light"
+            tools:ignore="HardcodedText" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/tv_secs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        android:textColor="@color/colorTextGrey"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_millis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        android:textColor="@color/colorTextGrey"
+        android:layout_marginTop="16dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorTextBlue"
+        android:textStyle="bold"
+        android:fontFamily="monospace"
+        android:layout_marginTop="16dp"/>
+
+</LinearLayout>
