@@ -6,5 +6,6 @@
     <color name="colorBaseLight">#FDF6E3</color>
     <color name="colorTextBlue">#268bd2</color>
     <color name="colorTextGrey">#586e75</color>
+    <color name="colorTextCyan">#2aa198</color>
 
 </resources>

@@ -8,12 +8,27 @@ import android.view.View;
 import android.widget.TextView;
 
 import java.text.DateFormat;
+import java.util.Calendar;
 import java.util.Locale;
+import java.util.TimeZone;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView tvMilliseconds, tvSeconds, tvFormattedDateTime;
+    private TextView tvMilliseconds, tvSeconds, tvFormattedDateTime, tvTimeZone;
     private Handler handler;
+    private Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+
+            long now_time = System.currentTimeMillis();
+
+            tvSeconds.setText(String.format(Locale.getDefault(), "%,d s", now_time / 1000L));
+            tvMilliseconds.setText(String.format(Locale.getDefault(), "%,d ms", now_time));
+            tvFormattedDateTime.setText(DateFormat.getDateInstance(DateFormat.FULL).format(now_time).concat(", ").concat(DateFormat.getTimeInstance().format(now_time)));
+
+            handler.postDelayed(this, 0);
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,30 +41,26 @@ public class MainActivity extends AppCompatActivity {
 
         tvSeconds = findViewById(R.id.tv_secs);
         tvMilliseconds = findViewById(R.id.tv_millis);
-        tvFormattedDateTime = findViewById(R.id.tv1);
+        tvFormattedDateTime = findViewById(R.id.tv_formatted_date_time);
+        tvTimeZone = findViewById(R.id.tv_timezone);
 
         handler = new Handler();
         handler.post(runnable);
+
+        tvTimeZone.setText(getTimeZoneInfo());
     }
 
-    private Runnable runnable = new Runnable() {
-        @Override
-        public void run() {
-
-            long now_time = System.currentTimeMillis();
-
-            tvSeconds.setText(String.format(Locale.getDefault(), "%,ds", now_time / 1000L));
-            tvMilliseconds.setText(String.format(Locale.getDefault(), "%,dms", now_time));
-            tvFormattedDateTime.setText(DateFormat.getDateInstance(DateFormat.FULL).format(now_time).concat(", ").concat(DateFormat.getTimeInstance().format(now_time)));
-
-            handler.postDelayed(this, 0);
-        }
-    };
+    private String getTimeZoneInfo() {
+        Calendar calendar = Calendar.getInstance();
+        TimeZone timeZone = calendar.getTimeZone();
+        return timeZone.getID().concat("\n").concat(timeZone.getDisplayName());
+    }
 
     @Override
     public void onBackPressed() {
-        if (handler != null)
+        if (handler != null) {
             handler.removeCallbacks(runnable);
+        }
         super.onBackPressed();
     }
 }

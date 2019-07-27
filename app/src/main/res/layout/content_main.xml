@@ -23,6 +23,8 @@
             android:layout_height="wrap_content"
             android:text="Unix Time"
             android:textColor="@color/colorAccent"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
             android:textSize="50sp"
             android:fontFamily="sans-serif-light"
             tools:ignore="HardcodedText" />
@@ -47,6 +49,8 @@
         android:layout_height="wrap_content"
         android:fontFamily="monospace"
         android:textColor="@color/colorTextGrey"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
         android:textStyle="bold" />
 
     <TextView
@@ -56,15 +60,30 @@
         android:fontFamily="monospace"
         android:textColor="@color/colorTextGrey"
         android:layout_marginTop="16dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/tv1"
+        android:id="@+id/tv_formatted_date_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/colorTextBlue"
         android:textStyle="bold"
         android:fontFamily="monospace"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
         android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:id="@+id/tv_timezone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:fontFamily="monospace"
+        android:gravity="center_horizontal"
+        android:textColor="@color/colorTextCyan"
+        android:textStyle="bold" />
 
 </LinearLayout>
